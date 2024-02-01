@@ -13,6 +13,6 @@ public abstract class Weapon {
     }
 
     public String toString(){
-        return = " ";
+        return  " ";
     }
 }

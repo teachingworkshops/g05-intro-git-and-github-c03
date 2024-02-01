@@ -1,4 +1,4 @@
-package gameplay.weapon;
+package main.gameplay.weapon;
 
 
 public class WoodenSpear extends Weapon{

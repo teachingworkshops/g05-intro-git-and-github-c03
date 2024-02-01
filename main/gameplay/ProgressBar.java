@@ -1,4 +1,4 @@
-package gameplay;
+package main.gameplay;
 
 public class ProgressBar {
     private String side = "|";

@@ -1,8 +1,8 @@
-package gameplay;
+package main.gameplay;
 
 import java.util.ArrayList;
 
-import gameplay.weapon.Weapon;
+import main.gameplay.weapon.Weapon;
 
 public class Player {
     public boolean alive;

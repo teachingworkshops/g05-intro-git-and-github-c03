@@ -1,6 +1,8 @@
-package intro;
+package main.intro;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import main.StartGame;
 
 public class GenerateStory {
     protected static String[] traits = {

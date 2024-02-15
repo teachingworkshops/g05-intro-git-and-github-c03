@@ -18,4 +18,5 @@ public class Bomb extends Weapon{
     public String toString(){
         return "bomb";
     }
+
 }

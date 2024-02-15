@@ -16,9 +16,12 @@ public class Player {
         thirst=25;
     }
 
-    public void  addItemToBackpack(Weapon newWeapon){
+    public void addItemToBackpack(Weapon newWeapon){
         backpack.add(newWeapon);
-        
+    }
+
+    public void remItemFromBackpack(int index){
+        backpack.remove(index);
     }
 
     public void updatePlayer(){
@@ -44,5 +47,14 @@ public class Player {
     }
     public boolean isBackpackFull() {
         return backpack.size() >= 3; 
+    }
+
+    public boolean containsSame(Weapon weapon){
+        for(int i=0; i<backpack.size(); i++){
+            if(!(weapon.toString().equals(backpack.get(i).toString()))){
+                return false;
+            }
+        }
+        return true;
     }
 }

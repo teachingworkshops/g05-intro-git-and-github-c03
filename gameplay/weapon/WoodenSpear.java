@@ -23,4 +23,5 @@ public class WoodenSpear extends Weapon{
     public String toString(){
         return "wooden spear";
     }
+
 }

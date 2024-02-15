@@ -114,10 +114,15 @@ public class Gameplay {
             // Additional 20% chance (cumulative 70%) of finding a chest
             chestsOpened++;
             System.out.println("You've stumbled upon a mysterious chest!");
-            if (player.isBackpackFull()) {
+            Weapon foundItem = getRandomItem();
+            if (player.isBackpackFull() && player.containsSame(foundItem)) {
                 System.out.println("Your backpack is full. You can't pick up any more items.");
-            } else {
-                Weapon foundItem = getRandomItem();
+            }
+            else if( player.isBackpackFull()){
+                // backpack is full but contains different items
+                chooseBackpackItem(foundItem);
+            }
+            else {
                 player.addItemToBackpack(foundItem); 
              //   System.out.println("You found a " + foundItem.getClass().getSimpleName() + " in the chest!");
                 System.out.println("You found a " + foundItem.toString() + " in the chest!");
@@ -203,5 +208,46 @@ private void handleEnemyEncounter() {
         }
     }
 
+    private void chooseBackpackItem(Weapon foundItem) {
+        System.out.println("You found a " + foundItem.toString() + " in the chest!");
+        System.out.println("However, your backpack is full.");
 
+        player.displayBackpack();
+
+        System.out.println("Enter the corresponding item number to swap the newly found item for an item in your backpack.");
+        System.out.println("Enter 0 to keep all items in your backpack.");
+        
+        int itemNumber = stdin.nextInt();
+
+        boolean input_is_valid = false;
+        
+        while(input_is_valid == false) {  
+            
+            if(itemNumber == 0){
+                System.out.println("You keep all your items\n");
+                input_is_valid = true;
+                }
+            else if(itemNumber == 1){
+                System.out.println("You switch out item 1\n");
+                player.remItemFromBackpack(0);
+                player.addItemToBackpack(foundItem);
+                input_is_valid = true;
+            }
+            else if(itemNumber == 2){
+                System.out.println("You switch out item 2\n");
+                player.remItemFromBackpack(1);
+                player.addItemToBackpack(foundItem);
+                input_is_valid = true;
+            }
+            else if(itemNumber == 3){
+                System.out.println("You switch out item 3\n");
+                player.remItemFromBackpack(2);
+                player.addItemToBackpack(foundItem);
+                input_is_valid = true;
+            }
+            else{
+                System.out.println("Invalid selection. Please choose a valid inventory number.");
+            }
+         }
+    }
 }
